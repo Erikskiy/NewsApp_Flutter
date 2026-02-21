@@ -5,6 +5,13 @@
 
 ---
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/26be25d8-ced7-41b3-b6e2-ce8bffc366cb" width="300" />
+  <img src="https://github.com/user-attachments/assets/25cceff1-f066-45f7-9bec-517c3ebd4250" width="300" />
+</p>
+
+---
+
 ## ✨ Возможности
 
 - 🔎 Поиск новостей
