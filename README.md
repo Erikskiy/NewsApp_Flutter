@@ -1,16 +1,66 @@
-# newsapp
+# 📰 NewsApp (Flutter)
 
-A new Flutter project.
+Мобильное приложение на **Flutter** для чтения новостей с категориями, поиском и страницей подробностей.
+Проект использует архитектуру **BLoC + разделение слоёв (view / view_model / model)**.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Возможности
 
-A few resources to get you started if this is your first Flutter project:
+- 🔎 Поиск новостей
+- 🧩 Категории: **News / Sports / Technology / Science / Health / Business / Politic / Weather**
+- 📰 Лента “Latest News”
+- 📄 Экран подробностей (Information) с описанием
+- 🌐 Открытие оригинальной статьи в браузере
+- 🔗 Поделиться ссылкой (Share link)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧱 Архитектура и структура проекта
+
+Проект разделён на слои:
+
+- `lib/model/` — модели данных (например, данные ответа API)
+  - `lib/model/api/api_model.dart`
+- `lib/view/` — UI-страницы и виджеты
+  - `main_page/` — главная лента
+  - `about_news_page/` — экран информации/подробностей
+- `lib/view_model/` — логика и состояние
+  - `bloc/news_description_bloc.dart` — BLoC (events/state) для работы с данными новости/описания
+
+Точка входа:
+- `lib/main.dart` — инициализация `BlocProvider`, отправка событий (API key, запрос новостей), запуск приложения.
+
+---
+
+## 🔌 Используемый API
+
+Приложение использует News API:
+
+🔗 https://newsapi.org/
+
+---
+
+## 🔑 Как получить API ключ
+
+1. Перейдите на сайт:
+   https://newsapi.org/
+
+2. Нажмите кнопку **Get API Key**
+
+3. Зарегистрируйтесь (это бесплатно)
+
+4. После регистрации вы получите личный API ключ
+
+---
+
+## ⚙️ Как подключить API ключ в проекте
+
+Откройте файл: lib/main.dart
+
+Найдите строку:
+
+```dart
+String userApiKey = "PUT_YOUR_API_KEY_HERE";
+
+И замените на ваш настоящий API ключ
