@@ -36,7 +36,7 @@
   - `bloc/news_description_bloc.dart` — BLoC (events/state) для работы с данными новости/описания
 
 Точка входа:
-- `lib/main.dart` — инициализация `BlocProvider`, отправка событий (API key, запрос новостей), запуск приложения.
+- `lib/main.dart` — инициализация `BlocProvider`, userApiKey, запуск приложения.
 
 ---
 
