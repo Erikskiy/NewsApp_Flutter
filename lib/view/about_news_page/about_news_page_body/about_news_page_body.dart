@@ -57,7 +57,7 @@ class AboutNewsPageBodyClassState extends State<AboutNewsPageBodyClass> {
                   Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(10),
                         child: IconButton(
                           onPressed: () async {
                             final url = Uri.tryParse("${context.read<BlocClass>().state.url}");
@@ -74,7 +74,7 @@ class AboutNewsPageBodyClassState extends State<AboutNewsPageBodyClass> {
                   Align(
                       alignment: Alignment.bottomRight,
                       child: Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(10),
                         child: IconButton(
                           onPressed: () {
                             Share.share("${context.read<BlocClass>().state.url}");
