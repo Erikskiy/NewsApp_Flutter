@@ -12,8 +12,6 @@ class AboutNewsPageBodyClass extends StatefulWidget{
 class AboutNewsPageBodyClassState extends State<AboutNewsPageBodyClass> {
   @override
   Widget build(BuildContext context) {
-    double screenSize = MediaQuery.of(context).size.width;
-
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -46,7 +44,7 @@ class AboutNewsPageBodyClassState extends State<AboutNewsPageBodyClass> {
               child: Stack(
                 children: [
                   Positioned.fill(
-                    child: context.watch<BlocClass>().state.urlToImage != null && context.watch<BlocClass>().state.urlToImage!.isNotEmpty
+                    child: context.watch<BlocClass>().state.urlToImage.isNotEmpty
                         ? Image.network(""
                         "${context.watch<BlocClass>().state.urlToImage}",
                       fit: BoxFit.cover,
