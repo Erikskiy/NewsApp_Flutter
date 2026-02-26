@@ -41,51 +41,56 @@ class AboutNewsPageBodyClassState extends State<AboutNewsPageBodyClass> {
 
             SizedBox( height: 10, width: 10, ),
 
-            Stack(
-              children: [
-                SizedBox(
-                  height: screenSize,
-                  width: screenSize,
-                  child: context.watch<BlocClass>().state.urlToImage != null && context.watch<BlocClass>().state.urlToImage!.isNotEmpty
-                      ? Image.network(""
-                      "${context.watch<BlocClass>().state.urlToImage}",
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return ColoredBox(color: Colors.black);
-                    },
+            AspectRatio(
+              aspectRatio: 1,
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: context.watch<BlocClass>().state.urlToImage != null && context.watch<BlocClass>().state.urlToImage!.isNotEmpty
+                        ? Image.network(""
+                        "${context.watch<BlocClass>().state.urlToImage}",
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return ColoredBox(color: Colors.black);
+                      },
+                    )
+                        : ColoredBox(color: Colors.black,),
+                  ),
+                  Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: IconButton(
+                          onPressed: () async {
+                            final url = Uri.tryParse("${context.read<BlocClass>().state.url}");
+                            await launchUrl(url!, mode: LaunchMode.externalApplication);
+                          },
+                          icon: Icon(
+                            Icons.open_in_new,
+                            color: Colors.white,
+                            size: 50,
+                          ),
+                        ),
+                      )
+                  ),
+                  Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: IconButton(
+                          onPressed: () {
+                            Share.share("${context.read<BlocClass>().state.url}");
+                          },
+                          icon: Icon(
+                            Icons.ios_share,
+                            color: Colors.white,
+                            size: 55,
+                          ),
+                        ),
+                      )
                   )
-                      : ColoredBox(color: Colors.black,),
-                ),
-                Positioned(
-                  left: 10,
-                  top: 380,
-                  child: IconButton(
-                    onPressed: () async {
-                      final url = Uri.tryParse("${context.read<BlocClass>().state.url}");
-                      await launchUrl(url!, mode: LaunchMode.externalApplication);
-                    },
-                    icon: Icon(
-                      Icons.open_in_new,
-                      color: Colors.white,
-                      size: 50,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 370,
-                  top: 370,
-                  child: IconButton(
-                    onPressed: () {
-                      Share.share("${context.read<BlocClass>().state.url}");
-                    },
-                    icon: Icon(
-                      Icons.ios_share,
-                      color: Colors.white,
-                      size: 55,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
 
             SizedBox( height: 15, width: 15, ),
